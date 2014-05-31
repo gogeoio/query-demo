@@ -1,2 +1,2 @@
-query-demo
+Query-demo
 ==========
