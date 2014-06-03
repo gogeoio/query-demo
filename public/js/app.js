@@ -5,9 +5,9 @@ var maxZoom = 14;
 var gogeoUrl = 'https://{s}.gogeo.io';
 
 var stylenameDefault = 'demos_points';
-var databaseName = 'db1';
+var databaseName = 'demos';
 var collectionName = 'newz';
-var mapkey = '123';
+var mapkey = '141bb3be-619a-4ffd-9aab-664ad92e568e';
 var buffer = 8;
 
 var tileUrl = gogeoUrl + '/map/' +
