@@ -1,11 +1,11 @@
-var appName = 'tile-with-query';
-var title = 'Tutorial GoGeo - Render map with query';
+var appName = 'query-demo';
+var minZoom = 6;
 var maxZoom = 14;
 
 var gogeoUrl = 'https://{s}.gogeo.io';
 
 var stylenameDefault = 'demos_points';
-var databaseName = 'demos';
+var databaseName = 'db1';
 var collectionName = 'newz';
 var mapkey = '123';
 var buffer = 8;
@@ -61,20 +61,17 @@ var loadTiles = App.loadTiles = function(query, stylename) {
 var initMap = function() {
   var options = {
     attributionControl: false,
-    minZoom: 4,
+    minZoom: minZoom,
     maxZoom: maxZoom
   };
 
-  var map = L.map('map', options).setView([54.367759, -105.695343], 4);
+  var map = L.map('map', options).setView([-41.12566,172.6577], 6);
+
+  var ggl = new L.Google('ROADMAP', options);
+  map.addLayer(ggl);
+  
   var group = App.group = new L.LayerGroup().addTo(map);
-
-  var baseLayer = L.tileLayer('http://{s}.maptile.lbs.ovi.com/maptiler/v2/maptile/newest/normal.day.grey/{z}/{x}/{y}/256/png8?token=gBoUkAMoxoqIWfxWA5DuMQ&app_id=mBCJzriKRMXN-4giYVBc', {
-      subdomains: '123',
-      maxZoom: maxZoom
-  });
-
-  map.addLayer(baseLayer);
+  loadTiles();
 };
 
 initMap();
-loadTiles();
